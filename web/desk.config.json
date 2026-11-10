@@ -1,0 +1,51 @@
+{
+  "deskName": "Credits Desk",
+  "companyName": "Sample Distribution Co.",
+  "intakeEmail": "credits@yourcompany.example",
+  "logo": null,
+  "footer": "Built live at the UniPro Foodservice Tech Summit, Nov 2026. Fork it and make it yours.",
+  "dataLabel": "Sample data: made-up claims for a fictional distributor",
+  "vendorInboxTemplate": "claims@<slug>.example",
+  "models": {
+    "extract": "claude-sonnet-5-5",
+    "draft": "claude-sonnet-5-5"
+  },
+  "reasonCodes": {
+    "VENDOR QUALITY": { "reason": "quality", "group": "vendor_quality" },
+    "CONCEALED DAMAGE": { "reason": "damaged", "group": "vendor_quality" },
+    "SHORT DATED": { "reason": "expired", "group": "vendor_quality" },
+    "VENDOR SHORT SHIP": { "reason": "short", "group": "vendor_quality" },
+    "OVER ORDER": { "reason": "over_ordered", "group": "customer" },
+    "WRONG ITEM ORDERED": { "reason": "wrong_item", "group": "customer" },
+    "ORDER ENTRY ERROR": { "reason": "sales_error", "group": "internal" },
+    "BILLING ERROR": { "reason": "sales_error", "group": "internal" },
+    "MISPICK": { "reason": "mispick", "group": "warehouse_or_delivery" },
+    "DAMAGED IN DELIVERY": { "reason": "damaged", "group": "warehouse_or_delivery" },
+    "DAMAGED IN WAREHOUSE": { "reason": "damaged", "group": "warehouse_or_delivery" }
+  },
+  "groups": {
+    "vendor_quality": { "recoverable": true, "note": "Vendor quality: claim it from the vendor." },
+    "customer": { "recoverable": false, "note": "Customer side: not a vendor claim." },
+    "internal": { "recoverable": false, "note": "Internal order-entry or billing error: sales coaching." },
+    "warehouse_or_delivery": { "recoverable": false, "note": "Internal warehouse or delivery issue: warehouse coaching." }
+  },
+  "triage": {
+    "recoverableWhen": [
+      "spoiled or poor quality on arrival",
+      "concealed damage inside the vendor's packaging",
+      "short-dated or expired on arrival",
+      "mislabeled or wrong pack from the manufacturer",
+      "a recall",
+      "the vendor shipping short against the PO"
+    ],
+    "internalWhen": [
+      "mispick",
+      "wrong item ordered or entered",
+      "sales or order-entry error",
+      "over-ordering",
+      "driver or warehouse damage",
+      "delivery problems",
+      "pricing"
+    ]
+  }
+}

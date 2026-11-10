@@ -1,0 +1,14 @@
+.DS_Store
+node_modules/
+.next/
+.vercel/
+*.tsbuildinfo
+
+# secrets: never commit
+.env*
+!.env.example
+*.pem
+
+# raw data exports stay on your machine; only anonymized or sample JSON goes in web/data/
+raw/
+*.csv

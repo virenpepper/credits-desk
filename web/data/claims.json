@@ -1,0 +1,1085 @@
+{
+  "label": "Sample data: made-up claims for a fictional distributor (40 credit lines)",
+  "claims": [
+    {
+      "id": "CLM-2001",
+      "createdAt": "2026-08-21T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "CEDAR CREEK MEATS",
+      "itemCode": "100108",
+      "itemName": "BACON SLICED 14/18 15LB",
+      "qty": 1,
+      "uom": "case",
+      "reason": "wrong_item",
+      "recoverable": false,
+      "triageNote": "Customer side: not a vendor claim. (Distributor code: WRONG ITEM ORDERED)",
+      "invoiceNumber": "S6917101",
+      "invoiceDate": "2026-08-19",
+      "customer": "Customer #1001",
+      "unitPrice": 72.18,
+      "creditAmount": 72.18,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-08-21T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2002",
+      "createdAt": "2026-08-25T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "RIDGELINE PRODUCE",
+      "itemCode": "100117",
+      "itemName": "ONION YELLOW JUMBO 50LB",
+      "qty": 4,
+      "uom": "case",
+      "reason": "over_ordered",
+      "recoverable": false,
+      "triageNote": "Customer side: not a vendor claim. (Distributor code: OVER ORDER)",
+      "invoiceNumber": "S6916251",
+      "invoiceDate": "2026-08-23",
+      "customer": "Customer #1001",
+      "unitPrice": 26.06,
+      "creditAmount": 104.24,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-08-25T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2003",
+      "createdAt": "2026-08-25T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "RIDGELINE PRODUCE",
+      "itemCode": "100117",
+      "itemName": "ONION YELLOW JUMBO 50LB",
+      "qty": 2,
+      "uom": "case",
+      "reason": "sales_error",
+      "recoverable": false,
+      "triageNote": "Internal order-entry or billing error: sales coaching. (Distributor code: BILLING ERROR)",
+      "invoiceNumber": "S6916265",
+      "invoiceDate": "2026-08-23",
+      "customer": "Customer #1002",
+      "unitPrice": 26.06,
+      "creditAmount": 52.12,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-08-25T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2004",
+      "createdAt": "2026-08-26T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "PRAIRIE CREST DAIRY",
+      "itemCode": "100115",
+      "itemName": "MILK WHOLE GAL 4CT",
+      "qty": 1,
+      "uom": "case",
+      "reason": "sales_error",
+      "recoverable": false,
+      "triageNote": "Internal order-entry or billing error: sales coaching. (Distributor code: ORDER ENTRY ERROR)",
+      "invoiceNumber": "S6916048",
+      "invoiceDate": "2026-08-24",
+      "customer": "Customer #1003",
+      "unitPrice": 17.68,
+      "creditAmount": 17.68,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-08-26T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2005",
+      "createdAt": "2026-08-28T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "RIDGELINE PRODUCE",
+      "itemCode": "100106",
+      "itemName": "LETTUCE ROMAINE HEARTS 3CT 12PK",
+      "qty": 1,
+      "uom": "case",
+      "reason": "quality",
+      "recoverable": true,
+      "triageNote": "Vendor quality: claim it from the vendor. (Distributor code: VENDOR QUALITY)",
+      "invoiceNumber": "S6915645",
+      "invoiceDate": "2026-08-26",
+      "customer": "Customer #1004",
+      "unitPrice": 31.3,
+      "creditAmount": 31.3,
+      "status": "new",
+      "history": [
+        {
+          "at": "2026-08-28T12:00:00.000Z",
+          "status": "new",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2006",
+      "createdAt": "2026-09-06T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "RIDGELINE PRODUCE",
+      "itemCode": "100107",
+      "itemName": "TOMATO 5X6 25LB",
+      "qty": 2,
+      "uom": "case",
+      "reason": "mispick",
+      "recoverable": false,
+      "triageNote": "Internal warehouse or delivery issue: warehouse coaching. (Distributor code: MISPICK)",
+      "invoiceNumber": "S6913736",
+      "invoiceDate": "2026-09-04",
+      "customer": "Customer #1005",
+      "unitPrice": 29.24,
+      "creditAmount": 58.48,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-09-06T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2007",
+      "createdAt": "2026-09-08T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "RIDGELINE PRODUCE",
+      "itemCode": "100118",
+      "itemName": "AVOCADO HASS 48CT",
+      "qty": 1,
+      "uom": "case",
+      "reason": "damaged",
+      "recoverable": false,
+      "triageNote": "Internal warehouse or delivery issue: warehouse coaching. (Distributor code: DAMAGED IN WAREHOUSE)",
+      "invoiceNumber": "S6913319",
+      "invoiceDate": "2026-09-06",
+      "customer": "Customer #1002",
+      "unitPrice": 48.99,
+      "creditAmount": 48.99,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-09-08T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2008",
+      "createdAt": "2026-09-09T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "PRAIRIE CREST DAIRY",
+      "itemCode": "100103",
+      "itemName": "SOUR CREAM CUP 12/16OZ",
+      "qty": 1,
+      "uom": "case",
+      "reason": "wrong_item",
+      "recoverable": false,
+      "triageNote": "Customer side: not a vendor claim. (Distributor code: WRONG ITEM ORDERED)",
+      "invoiceNumber": "S6913089",
+      "invoiceDate": "2026-09-07",
+      "customer": "Customer #1006",
+      "unitPrice": 28.36,
+      "creditAmount": 28.36,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-09-09T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2009",
+      "createdAt": "2026-09-10T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "MAPLE HOLLOW EGGS",
+      "itemCode": "100104",
+      "itemName": "EGG SHELL LARGE GRADE A 15DZ",
+      "qty": 1,
+      "uom": "case",
+      "reason": "mispick",
+      "recoverable": false,
+      "triageNote": "Internal warehouse or delivery issue: warehouse coaching. (Distributor code: MISPICK)",
+      "invoiceNumber": "S6912890",
+      "invoiceDate": "2026-09-08",
+      "customer": "Customer #1004",
+      "unitPrice": 39.11,
+      "creditAmount": 39.11,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-09-10T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2010",
+      "createdAt": "2026-09-12T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "SUNFIELD OILS",
+      "itemCode": "100102",
+      "itemName": "OIL FRYER CLEAR 35LB JUG",
+      "qty": 2,
+      "uom": "each",
+      "reason": "damaged",
+      "recoverable": false,
+      "triageNote": "Internal warehouse or delivery issue: warehouse coaching. (Distributor code: DAMAGED IN DELIVERY)",
+      "invoiceNumber": "S6912474",
+      "invoiceDate": "2026-09-10",
+      "customer": "Customer #1007",
+      "unitPrice": 41.09,
+      "creditAmount": 82.18,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-09-12T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2011",
+      "createdAt": "2026-09-13T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "RIDGELINE PRODUCE",
+      "itemCode": "100106",
+      "itemName": "LETTUCE ROMAINE HEARTS 3CT 12PK",
+      "qty": 1,
+      "uom": "case",
+      "reason": "over_ordered",
+      "recoverable": false,
+      "triageNote": "Customer side: not a vendor claim. (Distributor code: OVER ORDER)",
+      "invoiceNumber": "S6912241",
+      "invoiceDate": "2026-09-11",
+      "customer": "Customer #1008",
+      "unitPrice": 31.3,
+      "creditAmount": 31.3,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-09-13T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2012",
+      "createdAt": "2026-09-13T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "PRAIRIE CREST DAIRY",
+      "itemCode": "100103",
+      "itemName": "SOUR CREAM CUP 12/16OZ",
+      "qty": 1,
+      "uom": "case",
+      "reason": "mispick",
+      "recoverable": false,
+      "triageNote": "Internal warehouse or delivery issue: warehouse coaching. (Distributor code: MISPICK)",
+      "invoiceNumber": "S6912258",
+      "invoiceDate": "2026-09-11",
+      "customer": "Customer #1004",
+      "unitPrice": 28.36,
+      "creditAmount": 28.36,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-09-13T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2013",
+      "createdAt": "2026-09-14T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "RIDGELINE PRODUCE",
+      "itemCode": "100106",
+      "itemName": "LETTUCE ROMAINE HEARTS 3CT 12PK",
+      "qty": 2,
+      "uom": "case",
+      "reason": "sales_error",
+      "recoverable": false,
+      "triageNote": "Internal order-entry or billing error: sales coaching. (Distributor code: ORDER ENTRY ERROR)",
+      "invoiceNumber": "S6912041",
+      "invoiceDate": "2026-09-12",
+      "customer": "Customer #1002",
+      "unitPrice": 31.3,
+      "creditAmount": 62.6,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-09-14T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2014",
+      "createdAt": "2026-09-14T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "PRAIRIE CREST DAIRY",
+      "itemCode": "100114",
+      "itemName": "CHEESE CHEDDAR SHRED 4/5LB",
+      "qty": 1,
+      "uom": "case",
+      "reason": "damaged",
+      "recoverable": false,
+      "triageNote": "Internal warehouse or delivery issue: warehouse coaching. (Distributor code: DAMAGED IN DELIVERY)",
+      "invoiceNumber": "S6912051",
+      "invoiceDate": "2026-09-12",
+      "customer": "Customer #1004",
+      "unitPrice": 58.81,
+      "creditAmount": 58.81,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-09-14T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2015",
+      "createdAt": "2026-09-19T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "PRAIRIE CREST DAIRY",
+      "itemCode": "100115",
+      "itemName": "MILK WHOLE GAL 4CT",
+      "qty": 4,
+      "uom": "case",
+      "reason": "over_ordered",
+      "recoverable": false,
+      "triageNote": "Customer side: not a vendor claim. (Distributor code: OVER ORDER)",
+      "invoiceNumber": "S6910973",
+      "invoiceDate": "2026-09-17",
+      "customer": "Customer #1009",
+      "unitPrice": 17.68,
+      "creditAmount": 70.72,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-09-19T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2016",
+      "createdAt": "2026-09-25T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "SUNFIELD OILS",
+      "itemCode": "100123",
+      "itemName": "MAYONNAISE HEAVY DUTY 4/1GAL",
+      "qty": 2,
+      "uom": "case",
+      "reason": "wrong_item",
+      "recoverable": false,
+      "triageNote": "Customer side: not a vendor claim. (Distributor code: WRONG ITEM ORDERED)",
+      "invoiceNumber": "S6909717",
+      "invoiceDate": "2026-09-23",
+      "customer": "Customer #1007",
+      "unitPrice": 38.82,
+      "creditAmount": 77.64,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-09-25T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2017",
+      "createdAt": "2026-09-26T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "PRAIRIE CREST DAIRY",
+      "itemCode": "100103",
+      "itemName": "SOUR CREAM CUP 12/16OZ",
+      "qty": 1,
+      "uom": "case",
+      "reason": "quality",
+      "recoverable": true,
+      "triageNote": "Vendor quality: claim it from the vendor. (Distributor code: VENDOR QUALITY)",
+      "invoiceNumber": "S6909523",
+      "invoiceDate": "2026-09-24",
+      "customer": "Customer #1010",
+      "unitPrice": 28.36,
+      "creditAmount": 28.36,
+      "status": "new",
+      "history": [
+        {
+          "at": "2026-09-26T12:00:00.000Z",
+          "status": "new",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2018",
+      "createdAt": "2026-09-30T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "PRAIRIE CREST DAIRY",
+      "itemCode": "100116",
+      "itemName": "BUTTER SOLID UNSALTED 36/1LB",
+      "qty": 4,
+      "uom": "case",
+      "reason": "over_ordered",
+      "recoverable": false,
+      "triageNote": "Customer side: not a vendor claim. (Distributor code: OVER ORDER)",
+      "invoiceNumber": "S6908657",
+      "invoiceDate": "2026-09-28",
+      "customer": "Customer #1011",
+      "unitPrice": 95.61,
+      "creditAmount": 382.44,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-09-30T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2019",
+      "createdAt": "2026-10-02T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "SUNFIELD OILS",
+      "itemCode": "100123",
+      "itemName": "MAYONNAISE HEAVY DUTY 4/1GAL",
+      "qty": 4,
+      "uom": "case",
+      "reason": "wrong_item",
+      "recoverable": false,
+      "triageNote": "Customer side: not a vendor claim. (Distributor code: WRONG ITEM ORDERED)",
+      "invoiceNumber": "S6908237",
+      "invoiceDate": "2026-09-30",
+      "customer": "Customer #1011",
+      "unitPrice": 38.82,
+      "creditAmount": 155.28,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-10-02T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2020",
+      "createdAt": "2026-10-03T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "FROSTLINE POTATO",
+      "itemCode": "100105",
+      "itemName": "POTATO FRY 3/8 STRAIGHT CUT 6/5LB",
+      "qty": 1,
+      "uom": "case",
+      "reason": "damaged",
+      "recoverable": false,
+      "triageNote": "Internal warehouse or delivery issue: warehouse coaching. (Distributor code: DAMAGED IN DELIVERY)",
+      "invoiceNumber": "S6908041",
+      "invoiceDate": "2026-10-01",
+      "customer": "Customer #1009",
+      "unitPrice": 34.43,
+      "creditAmount": 34.43,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-10-03T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2021",
+      "createdAt": "2026-10-03T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "FROSTLINE POTATO",
+      "itemCode": "100105",
+      "itemName": "POTATO FRY 3/8 STRAIGHT CUT 6/5LB",
+      "qty": 1,
+      "uom": "case",
+      "reason": "damaged",
+      "recoverable": true,
+      "triageNote": "Vendor quality: claim it from the vendor. (Distributor code: CONCEALED DAMAGE)",
+      "invoiceNumber": "S6908052",
+      "invoiceDate": "2026-10-01",
+      "customer": "Customer #1012",
+      "unitPrice": 34.43,
+      "creditAmount": 34.43,
+      "status": "new",
+      "history": [
+        {
+          "at": "2026-10-03T12:00:00.000Z",
+          "status": "new",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2022",
+      "createdAt": "2026-10-12T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "RIDGELINE PRODUCE",
+      "itemCode": "100117",
+      "itemName": "ONION YELLOW JUMBO 50LB",
+      "qty": 2,
+      "uom": "case",
+      "reason": "wrong_item",
+      "recoverable": false,
+      "triageNote": "Customer side: not a vendor claim. (Distributor code: WRONG ITEM ORDERED)",
+      "invoiceNumber": "S6906128",
+      "invoiceDate": "2026-10-10",
+      "customer": "Customer #1004",
+      "unitPrice": 26.06,
+      "creditAmount": 52.12,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-10-12T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2023",
+      "createdAt": "2026-10-12T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "GOLDEN ACRE POULTRY",
+      "itemCode": "100101",
+      "itemName": "CHICKEN BRST BNLS SKLS 6OZ",
+      "qty": 1,
+      "uom": "case",
+      "reason": "quality",
+      "recoverable": true,
+      "triageNote": "Vendor quality: claim it from the vendor. (Distributor code: VENDOR QUALITY)",
+      "invoiceNumber": "S6906149",
+      "invoiceDate": "2026-10-10",
+      "customer": "Customer #1002",
+      "unitPrice": 68.3,
+      "creditAmount": 68.3,
+      "status": "new",
+      "history": [
+        {
+          "at": "2026-10-12T12:00:00.000Z",
+          "status": "new",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2024",
+      "createdAt": "2026-10-12T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "NORTHWIND MILLS",
+      "itemCode": "100121",
+      "itemName": "RICE LONG GRAIN 50LB",
+      "qty": 1,
+      "uom": "each",
+      "reason": "damaged",
+      "recoverable": true,
+      "triageNote": "Vendor quality: claim it from the vendor. (Distributor code: CONCEALED DAMAGE)",
+      "invoiceNumber": "S6906152",
+      "invoiceDate": "2026-10-10",
+      "customer": "Customer #1007",
+      "unitPrice": 31.69,
+      "creditAmount": 31.69,
+      "status": "new",
+      "history": [
+        {
+          "at": "2026-10-12T12:00:00.000Z",
+          "status": "new",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2025",
+      "createdAt": "2026-10-16T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "BLUE HERON SEAFOOD",
+      "itemCode": "100110",
+      "itemName": "SALMON FILLET ATL SKIN ON 10LB",
+      "qty": 2,
+      "uom": "case",
+      "reason": "damaged",
+      "recoverable": true,
+      "triageNote": "Vendor quality: claim it from the vendor. (Distributor code: CONCEALED DAMAGE)",
+      "invoiceNumber": "S6905310",
+      "invoiceDate": "2026-10-14",
+      "customer": "Customer #1010",
+      "unitPrice": 117.46,
+      "creditAmount": 234.92,
+      "status": "new",
+      "history": [
+        {
+          "at": "2026-10-16T12:00:00.000Z",
+          "status": "new",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2026",
+      "createdAt": "2026-10-16T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "GOLDEN ACRE POULTRY",
+      "itemCode": "100101",
+      "itemName": "CHICKEN BRST BNLS SKLS 6OZ",
+      "qty": 1,
+      "uom": "case",
+      "reason": "short",
+      "recoverable": true,
+      "triageNote": "Vendor quality: claim it from the vendor. (Distributor code: VENDOR SHORT SHIP)",
+      "invoiceNumber": "S6905314",
+      "invoiceDate": "2026-10-14",
+      "customer": "Customer #1001",
+      "unitPrice": 68.3,
+      "creditAmount": 68.3,
+      "status": "new",
+      "history": [
+        {
+          "at": "2026-10-16T12:00:00.000Z",
+          "status": "new",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2027",
+      "createdAt": "2026-10-17T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "PRAIRIE CREST DAIRY",
+      "itemCode": "100103",
+      "itemName": "SOUR CREAM CUP 12/16OZ",
+      "qty": 2,
+      "uom": "case",
+      "reason": "over_ordered",
+      "recoverable": false,
+      "triageNote": "Customer side: not a vendor claim. (Distributor code: OVER ORDER)",
+      "invoiceNumber": "S6905064",
+      "invoiceDate": "2026-10-15",
+      "customer": "Customer #1010",
+      "unitPrice": 28.36,
+      "creditAmount": 56.72,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-10-17T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2028",
+      "createdAt": "2026-10-17T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "PRAIRIE CREST DAIRY",
+      "itemCode": "100103",
+      "itemName": "SOUR CREAM CUP 12/16OZ",
+      "qty": 1,
+      "uom": "case",
+      "reason": "mispick",
+      "recoverable": false,
+      "triageNote": "Internal warehouse or delivery issue: warehouse coaching. (Distributor code: MISPICK)",
+      "invoiceNumber": "S6905086",
+      "invoiceDate": "2026-10-15",
+      "customer": "Customer #1006",
+      "unitPrice": 28.36,
+      "creditAmount": 28.36,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-10-17T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2029",
+      "createdAt": "2026-10-19T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "CEDAR CREEK MEATS",
+      "itemCode": "100108",
+      "itemName": "BACON SLICED 14/18 15LB",
+      "qty": 1,
+      "uom": "case",
+      "reason": "sales_error",
+      "recoverable": false,
+      "triageNote": "Internal order-entry or billing error: sales coaching. (Distributor code: ORDER ENTRY ERROR)",
+      "invoiceNumber": "S6904655",
+      "invoiceDate": "2026-10-17",
+      "customer": "Customer #1006",
+      "unitPrice": 72.18,
+      "creditAmount": 72.18,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-10-19T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2030",
+      "createdAt": "2026-10-20T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "PRAIRIE CREST DAIRY",
+      "itemCode": "100116",
+      "itemName": "BUTTER SOLID UNSALTED 36/1LB",
+      "qty": 2,
+      "uom": "case",
+      "reason": "over_ordered",
+      "recoverable": false,
+      "triageNote": "Customer side: not a vendor claim. (Distributor code: OVER ORDER)",
+      "invoiceNumber": "S6904433",
+      "invoiceDate": "2026-10-18",
+      "customer": "Customer #1004",
+      "unitPrice": 95.61,
+      "creditAmount": 191.22,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-10-20T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2031",
+      "createdAt": "2026-10-21T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "SUNFIELD OILS",
+      "itemCode": "100124",
+      "itemName": "KETCHUP FANCY 6/#10",
+      "qty": 2,
+      "uom": "case",
+      "reason": "over_ordered",
+      "recoverable": false,
+      "triageNote": "Customer side: not a vendor claim. (Distributor code: OVER ORDER)",
+      "invoiceNumber": "S6904225",
+      "invoiceDate": "2026-10-19",
+      "customer": "Customer #1003",
+      "unitPrice": 32.62,
+      "creditAmount": 65.24,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-10-21T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2032",
+      "createdAt": "2026-10-23T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "RIDGELINE PRODUCE",
+      "itemCode": "100118",
+      "itemName": "AVOCADO HASS 48CT",
+      "qty": 1,
+      "uom": "case",
+      "reason": "sales_error",
+      "recoverable": false,
+      "triageNote": "Internal order-entry or billing error: sales coaching. (Distributor code: ORDER ENTRY ERROR)",
+      "invoiceNumber": "S6903813",
+      "invoiceDate": "2026-10-21",
+      "customer": "Customer #1010",
+      "unitPrice": 48.99,
+      "creditAmount": 48.99,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-10-23T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2033",
+      "createdAt": "2026-10-27T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "RIDGELINE PRODUCE",
+      "itemCode": "100117",
+      "itemName": "ONION YELLOW JUMBO 50LB",
+      "qty": 1,
+      "uom": "case",
+      "reason": "quality",
+      "recoverable": true,
+      "triageNote": "Vendor quality: claim it from the vendor. (Distributor code: VENDOR QUALITY)",
+      "invoiceNumber": "S6902986",
+      "invoiceDate": "2026-10-25",
+      "customer": "Customer #1008",
+      "unitPrice": 26.06,
+      "creditAmount": 26.06,
+      "status": "new",
+      "history": [
+        {
+          "at": "2026-10-27T12:00:00.000Z",
+          "status": "new",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2034",
+      "createdAt": "2026-10-27T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "SUNFIELD OILS",
+      "itemCode": "100124",
+      "itemName": "KETCHUP FANCY 6/#10",
+      "qty": 1,
+      "uom": "case",
+      "reason": "short",
+      "recoverable": true,
+      "triageNote": "Vendor quality: claim it from the vendor. (Distributor code: VENDOR SHORT SHIP)",
+      "invoiceNumber": "S6902992",
+      "invoiceDate": "2026-10-25",
+      "customer": "Customer #1003",
+      "unitPrice": 32.62,
+      "creditAmount": 32.62,
+      "status": "new",
+      "history": [
+        {
+          "at": "2026-10-27T12:00:00.000Z",
+          "status": "new",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2035",
+      "createdAt": "2026-10-29T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "SUNFIELD OILS",
+      "itemCode": "100124",
+      "itemName": "KETCHUP FANCY 6/#10",
+      "qty": 1,
+      "uom": "case",
+      "reason": "expired",
+      "recoverable": true,
+      "triageNote": "Vendor quality: claim it from the vendor. (Distributor code: SHORT DATED)",
+      "invoiceNumber": "S6902568",
+      "invoiceDate": "2026-10-27",
+      "customer": "Customer #1011",
+      "unitPrice": 32.62,
+      "creditAmount": 32.62,
+      "status": "new",
+      "history": [
+        {
+          "at": "2026-10-29T12:00:00.000Z",
+          "status": "new",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2036",
+      "createdAt": "2026-11-02T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "NORTHWIND MILLS",
+      "itemCode": "100120",
+      "itemName": "TORTILLA FLOUR 12IN 6/12CT",
+      "qty": 2,
+      "uom": "case",
+      "reason": "damaged",
+      "recoverable": false,
+      "triageNote": "Internal warehouse or delivery issue: warehouse coaching. (Distributor code: DAMAGED IN WAREHOUSE)",
+      "invoiceNumber": "S6901715",
+      "invoiceDate": "2026-10-31",
+      "customer": "Customer #1010",
+      "unitPrice": 23.69,
+      "creditAmount": 47.38,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-11-02T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2037",
+      "createdAt": "2026-11-04T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "SUNFIELD OILS",
+      "itemCode": "100124",
+      "itemName": "KETCHUP FANCY 6/#10",
+      "qty": 2,
+      "uom": "case",
+      "reason": "sales_error",
+      "recoverable": false,
+      "triageNote": "Internal order-entry or billing error: sales coaching. (Distributor code: ORDER ENTRY ERROR)",
+      "invoiceNumber": "S6901282",
+      "invoiceDate": "2026-11-02",
+      "customer": "Customer #1009",
+      "unitPrice": 32.62,
+      "creditAmount": 65.24,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-11-04T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2038",
+      "createdAt": "2026-11-05T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "RIDGELINE PRODUCE",
+      "itemCode": "100118",
+      "itemName": "AVOCADO HASS 48CT",
+      "qty": 2,
+      "uom": "case",
+      "reason": "sales_error",
+      "recoverable": false,
+      "triageNote": "Internal order-entry or billing error: sales coaching. (Distributor code: BILLING ERROR)",
+      "invoiceNumber": "S6901072",
+      "invoiceDate": "2026-11-03",
+      "customer": "Customer #1005",
+      "unitPrice": 48.99,
+      "creditAmount": 97.98,
+      "status": "internal",
+      "history": [
+        {
+          "at": "2026-11-05T12:00:00.000Z",
+          "status": "internal",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2039",
+      "createdAt": "2026-11-07T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "BLUE HERON SEAFOOD",
+      "itemCode": "100110",
+      "itemName": "SALMON FILLET ATL SKIN ON 10LB",
+      "qty": 1,
+      "uom": "case",
+      "reason": "quality",
+      "recoverable": true,
+      "triageNote": "Vendor quality: claim it from the vendor. (Distributor code: VENDOR QUALITY)",
+      "invoiceNumber": "S6900662",
+      "invoiceDate": "2026-11-05",
+      "customer": "Customer #1011",
+      "unitPrice": 117.46,
+      "creditAmount": 117.46,
+      "status": "new",
+      "history": [
+        {
+          "at": "2026-11-07T12:00:00.000Z",
+          "status": "new",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    },
+    {
+      "id": "CLM-2040",
+      "createdAt": "2026-11-07T12:00:00.000Z",
+      "source": "seed",
+      "reporter": "customer",
+      "vendor": "BLUE HERON SEAFOOD",
+      "itemCode": "100111",
+      "itemName": "SHRIMP 21/25 P&D TAIL ON 5LB",
+      "qty": 2,
+      "uom": "case",
+      "reason": "expired",
+      "recoverable": true,
+      "triageNote": "Vendor quality: claim it from the vendor. (Distributor code: SHORT DATED)",
+      "invoiceNumber": "S6900670",
+      "invoiceDate": "2026-11-05",
+      "customer": "Customer #1003",
+      "unitPrice": 60.16,
+      "creditAmount": 120.32,
+      "status": "new",
+      "history": [
+        {
+          "at": "2026-11-07T12:00:00.000Z",
+          "status": "new",
+          "note": "Imported from the distributor's credit requests"
+        }
+      ]
+    }
+  ]
+}

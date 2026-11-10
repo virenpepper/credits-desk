@@ -1,0 +1,46 @@
+{
+  "label": "Sample contacts: made-up addresses, not real vendor emails",
+  "inboxTemplate": "claims@<slug>.example",
+  "vendors": [
+    {
+      "brand": "BLUE HERON SEAFOOD",
+      "slug": "blue-heron-seafood"
+    },
+    {
+      "brand": "CEDAR CREEK MEATS",
+      "slug": "cedar-creek-meats"
+    },
+    {
+      "brand": "FROSTLINE POTATO",
+      "slug": "frostline-potato"
+    },
+    {
+      "brand": "GOLDEN ACRE POULTRY",
+      "slug": "golden-acre-poultry"
+    },
+    {
+      "brand": "HEARTH & STONE BAKERY",
+      "slug": "hearth-stone-bakery"
+    },
+    {
+      "brand": "MAPLE HOLLOW EGGS",
+      "slug": "maple-hollow-eggs"
+    },
+    {
+      "brand": "NORTHWIND MILLS",
+      "slug": "northwind-mills"
+    },
+    {
+      "brand": "PRAIRIE CREST DAIRY",
+      "slug": "prairie-crest-dairy"
+    },
+    {
+      "brand": "RIDGELINE PRODUCE",
+      "slug": "ridgeline-produce"
+    },
+    {
+      "brand": "SUNFIELD OILS",
+      "slug": "sunfield-oils"
+    }
+  ]
+}
