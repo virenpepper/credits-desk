@@ -1,5 +1,5 @@
 import { connection } from "next/server";
-import Anthropic from "@anthropic-ai/sdk";
+import { claudeErrorResponse } from "@/lib/claude";
 import { getClaim, saveClaim, underLimit } from "@/lib/store";
 import { DraftError, draftVendorEmail } from "@/lib/draft";
 
@@ -27,13 +27,8 @@ export async function POST(req: Request, ctx: RouteContext<"/api/claims/[id]/dra
     claim.vendorEmailDraft = await draftVendorEmail(claim);
   } catch (e) {
     if (e instanceof DraftError) return Response.json({ error: e.message }, { status: 502 });
-    if (e instanceof Anthropic.RateLimitError) {
-      return Response.json({ error: "Claude is rate limited. Try again shortly." }, { status: 503 });
-    }
-    if (e instanceof Anthropic.APIError) {
-      console.error("draft: Claude API error", e.status, e.message);
-      return Response.json({ error: `Claude API error ${e.status}` }, { status: 502 });
-    }
+    const res = claudeErrorResponse(e, "draft");
+    if (res) return res;
     throw e;
   }
   claim.history.push({ at: new Date().toISOString(), status: claim.status, note: "Vendor email drafted" });

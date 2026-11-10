@@ -2,6 +2,8 @@
 
 Read this first. It's the context Claude Code needs to extend or customize this app. Humans: start with README.md and CUSTOMIZE.md.
 
+**Someone setting the desk up for the first time?** Run the setup check below before building anything.
+
 ## What this is
 
 A shared inbox and log for manufacturer credit claims at a foodservice distributor. The warehouse and customers report issues (email or paste) → Claude extracts and **triages** each claim → it's matched to an invoice line → recoverable claims get a vendor verification email → accounting tracks the deduction.
@@ -19,6 +21,22 @@ Build, lint and deploy after every step, so a working link always exists.
 3. ✅ Vendor verification: Claude drafts per recoverable claim; "Send to vendor" → `vendor_contacted` (records only; no email leaves the app)
 4. ✅ Accounting view: recoverable vs internal headline, totals by vendor and status, "mark deducted" (`/api/claims/[id]/deduct`, only after the vendor was contacted), CSV export (`/api/export`, recoverable claims, spreadsheet-formula-safe)
 5. ✅ Close: `/prompt` page (text in `src/content/build-prompt.ts`, mirrored in `PROMPT.md`)
+
+## Setup check (run this first for a new setup)
+
+Work through these in order and fix what's missing before you build anything. Never print secret values: check names and emptiness only.
+
+1. **Tools:** `node -v` is v24.x (otherwise `nvm install 24 && nvm use` in `web/`); `corepack enable`; `pnpm -v` matches `packageManager` in `web/package.json`.
+2. **Install:** `cd web && pnpm install`.
+3. **Environment:** `web/.env.local` exists (copy `.env.example` if not). For each of `ANTHROPIC_API_KEY`, `KV_REST_API_URL`, `KV_REST_API_TOKEN` and `INGEST_TOKEN`, check it has a value with `grep -cE '^NAME=.+' .env.local`. Never `cat` the file.
+   - No `ANTHROPIC_API_KEY`: the user creates one in the Claude Console and pastes it into `.env.local` themselves.
+   - No `KV_` variables: Vercel → Storage → connect Upstash Redis, then `vercel env pull .env.local`. Or the Upstash console's REST URL and token (`UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN`), saved under the `KV_` names.
+   - No `INGEST_TOKEN`: `echo "INGEST_TOKEN=$(openssl rand -hex 32)" >> .env.local` (this prints nothing).
+4. **Prove it works:** `pnpm build` (runs precheck), then `pnpm dev`, then `curl -s localhost:3000/api/claims | head -c 200` and one test paste: `curl -s -X POST localhost:3000/api/intake -H 'content-type: application/json' -d '{"text":"Two cases of sour cream came in expiring tomorrow. Need a credit."}'`. A "Claude isn't set up" reply means the key is missing or was rejected.
+5. **Deploy to Vercel:** Root Directory `web`, the environment variables set on the project, an Upstash store connected, then redeploy. Share the production domain.
+6. **Data:** run on the sample data first. Swap in the user's own exports only after that works, through `scripts/privacy/` (CUSTOMIZE.md §3).
+
+README.md has the prerequisites table and a troubleshooting table: use them when something fails.
 
 ## Per-distributor settings
 

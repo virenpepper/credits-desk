@@ -1,9 +1,7 @@
 // Server only: Claude drafts the vendor verification email for one recoverable claim.
-import Anthropic from "@anthropic-ai/sdk";
 import config from "../../desk.config.json";
+import { claude } from "./claude";
 import { type Claim, REASON_LABEL } from "./claims";
-
-const client = new Anthropic();
 
 // Voice rules for a distributor writing to a vendor. Edit them to match your company's tone (CUSTOMIZE.md).
 const SYSTEM = `You write credit verification emails from a foodservice distributor's credits desk to a manufacturer's claims team.
@@ -37,7 +35,7 @@ export async function draftVendorEmail(claim: Claim): Promise<string> {
     creditAmount: claim.creditAmount,
   };
 
-  const res = await client.beta.messages.create({
+  const res = await claude().beta.messages.create({
     model: config.models.draft,
     max_tokens: 4000,
     // If a safety classifier declines, the API retries on a fallback model inside the same call.

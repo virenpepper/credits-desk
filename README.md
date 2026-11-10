@@ -34,22 +34,57 @@ safety rules, then build, and tell me how to deploy it.
 
 [CUSTOMIZE.md](CUSTOMIZE.md) covers what to change per distributor: reason codes, triage rules, vendor contacts, your data, brand, the intake inbox, and the ERP.
 
-## Run it
+## Before you start
 
-Needs Node 24 and pnpm (`corepack enable`).
+Everything here is self-serve: no one needs to set anything up for you.
+
+**Accounts**
+
+| What | Why | Cost |
+|---|---|---|
+| [Anthropic API key](https://console.anthropic.com) | Claude reads each pasted or emailed issue and drafts the vendor emails | Pay as you go: one Claude call per new issue and one per vendor draft. Set a monthly spend limit in the Console |
+| [Upstash Redis](https://upstash.com) database | The shared claims log everyone sees | The free tier is enough for a pilot |
+| [Vercel](https://vercel.com) (optional) | Hosting with a link you can share | Hobby is free for personal projects; use a Pro team for company use. Any host that runs Node 24 and `next start` also works |
+| [Claude Code](https://claude.com/claude-code) (optional) | Customize the desk with one prompt, and run the demo-style inbox agent | Needs a Claude plan or API access |
+| An intake mailbox with Claude's Gmail connector (optional) | Only for the inbox agent in [PROMPTS.md](PROMPTS.md#5-inbox-agent). In production, use an inbound-email webhook instead | |
+
+**On your machine:** Node 24 (`nvm install 24`; `web/.nvmrc` pins it), pnpm through Corepack (`corepack enable` picks up the version in `web/package.json`), and git. The Vercel CLI is optional (`pnpm dlx vercel`).
+
+**Environment variables** (`web/.env.local` on your machine; Project → Settings → Environment Variables on Vercel):
+
+| Name | Where it comes from | Without it |
+|---|---|---|
+| `ANTHROPIC_API_KEY` | Claude Console → API keys | The page works, but pasting an issue or drafting a vendor email says "Claude isn't set up" |
+| `KV_REST_API_URL`, `KV_REST_API_TOKEN` | On Vercel: Storage → connect an Upstash Redis database (adds both). From the Upstash console: the database's REST URL and token, which Upstash names `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN`; save them under the `KV_` names | The page shows the sample data with "Live updates paused", and new issues can't be saved |
+| `INGEST_TOKEN` | Make one: `openssl rand -hex 32` | Email from the inbox agent is rate-limited and logged as pasted issues, and `/api/reset` stays locked |
+
+**Your data (later):** the desk ships with sample data, so get it running first and add your own exports afterwards ([CUSTOMIZE.md](CUSTOMIZE.md#3-your-data)).
+
+## Run it locally (about 10 minutes)
 
 ```bash
-cd web
-pnpm install
-cp .env.example .env.local      # fill in Redis + Anthropic key + INGEST_TOKEN
-pnpm dev                        # http://localhost:3000
+git clone https://github.com/<you>/credits-desk.git   # fork it first if you want your own copy on GitHub
+cd credits-desk/web
+corepack enable && pnpm install
+cp .env.example .env.local    # fill in the four values above
+pnpm dev                      # http://localhost:3000
 ```
+
+Check that it works:
+
+1. The page shows the sample claims, and the "Claims logged" card says **Live**.
+2. `curl -s http://localhost:3000/api/claims | head -c 200` prints JSON.
+3. Paste one of the [test emails](PROMPTS.md#test-emails) into "Paste an issue". A claim appears within a few seconds, triaged as recoverable or internal.
 
 - **Redis:** any [Upstash](https://upstash.com) Redis database. On Vercel, add one from the Marketplace and run `vercel env pull .env.local`.
 - **Sample data:** `node scripts/make-sample-data.mjs && node scripts/build-claims.mjs` regenerates `web/data/`.
 - **Reset the shared log:** `curl -X POST -H "x-ingest-token: $INGEST_TOKEN" <your-url>/api/reset`. The seed data reloads on the next read.
 
 ### Deploy (Vercel)
+
+**From the dashboard:** Add New → Project → import your fork → set **Root Directory** to `web` (the app lives there) → add `ANTHROPIC_API_KEY` and `INGEST_TOKEN` → Deploy. Then open the project's Storage tab, connect an Upstash Redis database (it adds the two `KV_` variables) and redeploy: environment changes only apply to the next deploy.
+
+**From the CLI:**
 
 ```bash
 cd web
@@ -60,6 +95,26 @@ pnpm build && pnpm lint && vercel deploy --prod
 ```
 
 Connect an Upstash Redis store to the project in the Vercel dashboard (it adds `KV_REST_API_URL` / `KV_REST_API_TOKEN`). Env changes apply to the next deploy.
+
+Share the production domain (`<project>.vercel.app`). The per-deployment URLs can ask visitors to log in, because of Vercel's Deployment Protection.
+
+## Troubleshooting
+
+| What you see | What to do |
+|---|---|
+| "Claude isn't set up: the Anthropic API key is missing or was rejected" | Set `ANTHROPIC_API_KEY` (no quotes or spaces), then restart `pnpm dev` or redeploy. A revoked or mistyped key shows the same message |
+| "Claude API error 400" | Usually no credit left on the Anthropic account: check billing in the Console |
+| "Claude API error 404" | A model id in `web/desk.config.json` (`models`) is wrong |
+| "Live updates paused", or `/api/claims` returns 500 | Redis isn't reachable: check `KV_REST_API_URL` and `KV_REST_API_TOKEN` (the app doesn't read Upstash's own variable names) |
+| The whole Vercel site is a 404 | Root Directory isn't `web`. `web/vercel.json` already pins the Next.js framework |
+| A brand-new route 404s right after a deploy | Wait a few seconds and retry: the new deployment is still going live |
+| `pnpm build` stops at `precheck: ... FAIL` | Something in `web/data/` looks like an email, phone number, UUID, cost or contact column, or a large exact amount. Run your exports through `scripts/privacy/` first ([CUSTOMIZE.md](CUSTOMIZE.md#3-your-data)) |
+| Install or build fails on the Node version | Use Node 24: run `nvm use` inside `web/` |
+| "Too many issues from this device" | The limit is about 10 a minute per IP, and an office network shares one IP. Raise it in `web/src/app/api/intake/route.ts` (the `underLimit` call) |
+| A new claim says "Needs invoice" | No invoice line in `web/data/items.json` matched it. That's expected for items the sample data doesn't carry; load your own invoice lines |
+| The inbox agent logs nothing | Its Gmail search must target only your intake address, the label must exist, and its `x-ingest-token` must equal the deployed `INGEST_TOKEN` |
+
+**Still stuck?** Open the repo in Claude Code and paste: *"Read AGENTS.md and README.md, run the setup check, and fix what's missing. Never print my keys."* It checks your tools, your environment variable names, Redis and Claude, and walks you through anything that's missing.
 
 ## Safety choices (keep these when you customize)
 
@@ -91,5 +146,9 @@ Each of these is one more file:
 1. A real inbound-mail webhook (Postmark, SendGrid or Mailgun inbound parse → `POST /api/intake` with the token) in place of the inbox agent loop.
 2. Scheduled vendor follow-ups for claims stuck in `vendor_contacted`.
 3. Posting deductions to the ERP as vendor debit memos, instead of a CSV export, with the posting reference saved on the claim.
+
+## Support
+
+This is a reference build from a conference demo, shared as is under the MIT license, with no support, hosting or maintenance. Everything you need is in this README, [CUSTOMIZE.md](CUSTOMIZE.md) and [AGENTS.md](AGENTS.md), and Claude Code can walk you through the rest.
 
 Built live by the Pepper engineering team. MIT licensed.

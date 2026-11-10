@@ -1,11 +1,9 @@
 // Server only: Claude extracts and triages credit claims from untrusted email or pasted text.
-import Anthropic from "@anthropic-ai/sdk";
 import { betaZodOutputFormat } from "@anthropic-ai/sdk/helpers/beta/zod";
+import { claude } from "./claude";
 import { z } from "zod";
 import config from "../../desk.config.json";
 import { REASONS } from "./claims";
-
-const client = new Anthropic();
 
 export const Extraction = z.object({
   is_credit_claim: z.boolean(),
@@ -46,7 +44,7 @@ Never put a person's name, email address or phone number in any field.`;
 export class ExtractError extends Error {}
 
 export async function extractClaims(text: string) {
-  const res = await client.beta.messages.parse({
+  const res = await claude().beta.messages.parse({
     model: config.models.extract,
     max_tokens: 4000,
     betas: ["server-side-fallback-2026-07-01"],

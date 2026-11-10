@@ -1,6 +1,6 @@
 import { timingSafeEqual } from "node:crypto";
 import { connection } from "next/server";
-import Anthropic from "@anthropic-ai/sdk";
+import { claudeErrorResponse } from "@/lib/claude";
 import { z } from "zod";
 import type { Claim } from "@/lib/claims";
 import { type Extracted, ExtractError, extractClaims } from "@/lib/extract";
@@ -93,13 +93,8 @@ export async function POST(req: Request) {
     extraction = await extractClaims(text);
   } catch (e) {
     if (e instanceof ExtractError) return Response.json({ error: e.message }, { status: 502 });
-    if (e instanceof Anthropic.RateLimitError) {
-      return Response.json({ error: "Claude is rate limited. Try again shortly." }, { status: 503 });
-    }
-    if (e instanceof Anthropic.APIError) {
-      console.error("intake: Claude API error", e.status, e.message);
-      return Response.json({ error: `Claude API error ${e.status}` }, { status: 502 });
-    }
+    const res = claudeErrorResponse(e, "intake");
+    if (res) return res;
     throw e;
   }
 
